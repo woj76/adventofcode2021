@@ -54,6 +54,8 @@ wins = [0] * len(boards)
 
 for n in draws:
 	for i,b in enumerate(boards):
+		if wins[i] == 1:
+			continue
 		draw(b, n)
 		if check_win(b):
 			wins[i] = 1
