@@ -22,12 +22,10 @@ for d in data:
 	cnt += 1
 
 rel_pos = {}
-max_pos = []
 stack = []
 
 for p,c3 in enumerate(consts3):
 	if c3 == 1:
-		max_pos.append(p)
 		stack.append(p)
 	else:
 		rel_pos[p] = stack.pop()
@@ -38,7 +36,7 @@ if not part2:
 
 r = [0] * 14
 for i in range(14):
-	if i not in max_pos:
+	if i in rel_pos:
 		prev_i = rel_pos[i]
 		for old_w in digits:
 			w = (consts2[prev_i] + old_w) % 26 + consts1[i]
